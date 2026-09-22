@@ -1,0 +1,25 @@
+# Environment variables
+.env
+backend/.env
+
+# Node modules
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Python Virtual Environments
+venv/
+backend/venv/
+env/
+__pycache__/
+*.pyc
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Logs and tests
+*.log
+error_log.txt
+backend/error_log.txt
+test.jpg

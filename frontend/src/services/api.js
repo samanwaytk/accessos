@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://accessos-ndv3.onrender.com/'; // Adjust in production
+const API_BASE_URL = 'https://accessos-ndv3.onrender.com/api'; // Adjust in production
 
 export const api = {
     analyzeImage: async (imageFile, userQuery = null) => {

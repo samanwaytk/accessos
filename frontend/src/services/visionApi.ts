@@ -1,0 +1,4 @@
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+export type VisionReply = { answer: string; scene_summary: string; observations: { name: string; position: string }[]; memory_used: boolean }
+export async function analyzeFrame(image: string, question: string | undefined, sessionId: string, mode: 'scene' | 'ocr' = 'scene'): Promise<VisionReply> { const response = await fetch(`${API_URL}/api/analyze`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image, question, session_id: sessionId, mode }) }); const data = await response.json().catch(() => ({})); if (!response.ok) throw new Error(data.detail || 'Could not analyze the captured image.'); return data as VisionReply }
+export async function clearMemory(sessionId: string) { const response = await fetch(`${API_URL}/api/memory/${sessionId}/clear`, { method: 'POST' }); if (!response.ok) throw new Error('Could not clear session memory.') }
